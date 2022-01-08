@@ -12,7 +12,7 @@ initTestHelpers()
 describe('Navigation by Link', () => {
   it('Should route to selected page in navbar', async () => {
     const { page } = await getPage({
-      route: '/blog-page',
+      route: '/index',
     })
     // screen.debug()
     render(page)
