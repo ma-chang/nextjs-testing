@@ -11,9 +11,10 @@ import 'setimmediate'
 initTestHelpers()
 
 const handler = [
-  rest.get(
-    'https://jsonplaceholder.typicode.com/todos/?_limit=10',
-    (req, res, ctx) => {
+  rest.get('https://jsonplaceholder.typicode.com/todos/', (req, res, ctx) => {
+    const query = req.url.searchParams
+    const _limit = query.get('_limit')
+    if (_limit === '10')
       return res(
         ctx.status(200),
         ctx.json([
@@ -31,8 +32,7 @@ const handler = [
           },
         ])
       )
-    }
-  ),
+  }),
 ]
 
 const server = setupServer(...handler)
