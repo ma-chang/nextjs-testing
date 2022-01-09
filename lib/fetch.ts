@@ -8,7 +8,7 @@ export const getAllPostData = async () => {
   return posts
 }
 
-export const getAllTasks = async () => {
+export const getAllTasksData = async () => {
   const response = await fetch(
     new URL('https://jsonplaceholder.typicode.com/todos/?_limit=10')
   )
